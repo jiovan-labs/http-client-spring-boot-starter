@@ -23,6 +23,7 @@ import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.apache.hc.client5.http.cookie.Cookie;
 import org.apache.hc.client5.http.cookie.CookieStore;
 import org.springframework.util.CollectionUtils;
@@ -50,7 +51,7 @@ public abstract class CookieStoreUtils {
         if (CollectionUtils.isEmpty(store.getCookies()) || StringUtils.isBlank(name)) {
             return null;
         }
-        return store.getCookies().stream().filter(cookie -> StringUtils.equals(name, cookie.getName())).findFirst().orElse(null);
+        return store.getCookies().stream().filter(cookie -> Strings.CS.equals(name, cookie.getName())).findFirst().orElse(null);
     }
 
     /**
