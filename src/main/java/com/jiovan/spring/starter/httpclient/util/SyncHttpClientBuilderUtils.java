@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.httpclient.util;
+package com.jiovan.spring.starter.httpclient.util;
 
 
 import java.util.ArrayList;
@@ -40,17 +40,27 @@ import org.apache.hc.core5.util.TimeValue;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
-import cn.unikue.springstarter.httpclient.property.SyncHttpClientProperties;
+import com.jiovan.spring.starter.httpclient.property.SyncHttpClientProperties;
 
 
 /**
- * Utilities for building http client with {@link cn.unikue.springstarter.httpclient.property.SyncHttpClientProperties}
+ * Utilities for building http client with {@link com.jiovan.spring.starter.httpclient.property.SyncHttpClientProperties}
  *
  * @author David Hsing
- * @see cn.unikue.springstarter.httpclient.property.SyncHttpClientProperties
+ * @see com.jiovan.spring.starter.httpclient.property.SyncHttpClientProperties
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue", "DuplicatedCode"})
 public abstract class SyncHttpClientBuilderUtils {
+    /**
+     * Returns an {@link org.apache.hc.client5.http.impl.classic.HttpClientBuilder} configured from the given properties
+     *
+     * @param properties the synchronous HTTP client properties providing proxy, connection, strategy and authentication settings
+     *
+     * @return the configured {@link org.apache.hc.client5.http.impl.classic.HttpClientBuilder}
+     *
+     * @throws org.springframework.beans.BeanInstantiationException if a configured strategy, planner or provider class cannot be instantiated
+     */
+
     @Nonnull
     public static HttpClientBuilder clientBuilder(@Nonnull SyncHttpClientProperties properties) throws BeanInstantiationException {
         HttpClientBuilder builder = HttpClientBuilder.create();

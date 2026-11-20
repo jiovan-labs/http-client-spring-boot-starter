@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.httpclient.config;
+package com.jiovan.spring.starter.httpclient.config;
 
 
 import jakarta.annotation.Nonnull;
@@ -29,9 +29,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
-import cn.unikue.springstarter.httpclient.property.HttpClientProperties;
-import cn.unikue.springstarter.httpclient.util.AsyncHttpClientBuilderUtils;
-import cn.unikue.springstarter.httpclient.util.SyncHttpClientBuilderUtils;
+import com.jiovan.spring.starter.httpclient.property.HttpClientProperties;
+import com.jiovan.spring.starter.httpclient.util.AsyncHttpClientBuilderUtils;
+import com.jiovan.spring.starter.httpclient.util.SyncHttpClientBuilderUtils;
 
 
 /**
@@ -46,9 +46,17 @@ import cn.unikue.springstarter.httpclient.util.SyncHttpClientBuilderUtils;
 @EnableConfigurationProperties(value = HttpClientProperties.class)
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE - 1000)
 public class HttpClientAutoConfiguration {
-    public static final String PROPERTIES_PREFIX = "spring.http-client";    // $NON-NLS-1$
+    public static final String PROPERTIES_PREFIX = "jiovan.http-client";    // $NON-NLS-1$
     public static final String SYNC_HTTP_CLIENT = "syncHttpClient";    // $NON-NLS-1$
     public static final String ASYNC_HTTP_CLIENT = "asyncHttpClient";    // $NON-NLS-1$
+
+    /**
+     * Returns a synchronous {@link org.apache.hc.client5.http.classic.HttpClient} built from the sync client properties
+     *
+     * @param properties the HTTP client properties whose {@code sync-client} settings configure the client
+     *
+     * @return the configured synchronous {@link org.apache.hc.client5.http.classic.HttpClient}
+     */
 
     @Bean(name = SYNC_HTTP_CLIENT)
     @ConditionalOnBooleanProperty(prefix = PROPERTIES_PREFIX + ".sync-client", name = "enabled", matchIfMissing = true)
@@ -57,6 +65,14 @@ public class HttpClientAutoConfiguration {
     public HttpClient syncHttpClient(@Nonnull HttpClientProperties properties) {
         return SyncHttpClientBuilderUtils.clientBuilder(properties.getSyncClient()).build();
     }
+
+    /**
+     * Returns an asynchronous {@link org.apache.hc.client5.http.async.HttpAsyncClient} built from the async client properties
+     *
+     * @param properties the HTTP client properties whose {@code async-client} settings configure the client
+     *
+     * @return the configured asynchronous {@link org.apache.hc.client5.http.async.HttpAsyncClient}
+     */
 
     @Bean(name = ASYNC_HTTP_CLIENT)
     @ConditionalOnBooleanProperty(prefix = PROPERTIES_PREFIX + ".async-client", name = "enabled", matchIfMissing = true)

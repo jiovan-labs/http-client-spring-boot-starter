@@ -8,18 +8,18 @@ Spring Boot application integrates `HttpClient` quickly.
 
 ```xml
     <dependency>
-        <groupId>cn.unikue.springstarter</groupId>
+        <groupId>com.jiovan.spring.starter</groupId>
         <artifactId>http-client-spring-boot-starter</artifactId>
         <version>LATEST</version>
     </dependency>
 ```
 
-> By default, this starter will auto take effect, you can turn it off by `spring.http-client.enabled = false`
+> By default, this starter will auto take effect, you can turn it off by `jiovan.http-client.enabled = false`
 
-- Configure Spring Boot `application.yml` with prefix `spring.http-client`
+- Configure Spring Boot `application.yml` with prefix `jiovan.http-client`
 
 ```yml
-spring:
+jiovan:
     http-client:
         sync-client:
             user-agent: 'Apache-HttpClient'
@@ -36,7 +36,7 @@ spring:
 
 ## Document
 
-- Github: https://github.com/unikueltd/http-client-spring-boot-starter
+- Github: https://github.com/jiovan-labs/http-client-spring-boot-starter
 - HttpClient github: https://github.com/apache/httpcomponents-client
 - HttpClient homepage: https://hc.apache.org
 
@@ -52,12 +52,12 @@ See the `NOTICE.txt` file for required notices and attributions.
 
 ## Donation
 
-You like this package? Then [donate to us](https://unikue.cn/donation) to support the development.
+You like this package? Then [donate to us](https://jiovan.com/donation) to support the development.
 
 ## Copyright
 
-Beijing Unikue Network Technology Ltd.
+Beijing Jiovan Technology Ltd.
 
 ## Website
 
-- Unikue: https://unikue.cn
+- Jiovan: https://jiovan.com

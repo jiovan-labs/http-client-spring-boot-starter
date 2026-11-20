@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.httpclient.util;
+package com.jiovan.spring.starter.httpclient.util;
 
 
 import java.util.ArrayList;
@@ -39,17 +39,27 @@ import org.apache.hc.core5.util.TimeValue;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
-import cn.unikue.springstarter.httpclient.property.AsyncHttpClientProperties;
+import com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties;
 
 
 /**
- * Utilities for building http client with {@link cn.unikue.springstarter.httpclient.property.AsyncHttpClientProperties}
+ * Utilities for building http client with {@link com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties}
  *
  * @author David Hsing
- * @see cn.unikue.springstarter.httpclient.property.AsyncHttpClientProperties
+ * @see com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue", "DuplicatedCode"})
 public abstract class AsyncHttpClientBuilderUtils {
+    /**
+     * Returns an {@link org.apache.hc.client5.http.impl.async.HttpAsyncClientBuilder} configured from the given properties
+     *
+     * @param properties the asynchronous HTTP client properties providing proxy, connection, strategy and authentication settings
+     *
+     * @return the configured {@link org.apache.hc.client5.http.impl.async.HttpAsyncClientBuilder}
+     *
+     * @throws org.springframework.beans.BeanInstantiationException if a configured strategy, planner or provider class cannot be instantiated
+     */
+
     @Nonnull
     public static HttpAsyncClientBuilder clientBuilder(@Nonnull AsyncHttpClientProperties properties) throws BeanInstantiationException {
         HttpAsyncClientBuilder builder = HttpAsyncClientBuilder.create();

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,15 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})
 public abstract class LookupRegistryUtils {
+    /**
+     * Returns a {@code Registry} built from the given map, or {@code null} if the map is empty
+     *
+     * @param <T> the registry entry type
+     * @param map the entries to register, may be {@code null} or empty
+     *
+     * @return the registry, or {@code null} if {@code map} is empty
+     */
+
     @Nullable
     public static <T> Registry<T> registryWithin(@Nullable Map<String, T> map) {
         return ObjectUtils.isEmpty(map) ? null : new Registry<>(map);

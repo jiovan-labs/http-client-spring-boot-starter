@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.httpclient.util;
+package com.jiovan.spring.starter.httpclient.util;
 
 
 import jakarta.annotation.Nullable;
@@ -23,17 +23,25 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.core5.util.TimeValue;
 import org.apache.hc.core5.util.Timeout;
-import cn.unikue.springstarter.httpclient.property.AbstractHttpClientProperties;
+import com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties;
 
 
 /**
- * Utilities for building http client with {@link cn.unikue.springstarter.httpclient.property.AbstractHttpClientProperties}
+ * Utilities for building http client with {@link com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties}
  *
  * @author David Hsing
- * @see cn.unikue.springstarter.httpclient.property.AbstractHttpClientProperties
+ * @see com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})
 public abstract class AbstractHttpClientBuilderUtils {
+    /**
+     * Returns a {@link org.apache.hc.client5.http.config.RequestConfig} built from the given properties when they are enabled
+     *
+     * @param properties the request configuration properties, may be {@code null} or disabled
+     *
+     * @return the configured {@link org.apache.hc.client5.http.config.RequestConfig}, or {@code null} if {@code properties} is {@code null} or disabled
+     */
+
     @Nullable
     public static RequestConfig buildRequestConfig(@Nullable AbstractHttpClientProperties.DefaultRequestConfig properties) {
         if (properties == null || BooleanUtils.isFalse(properties.getEnabled())) {

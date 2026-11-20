@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.httpclient.util;
+package com.jiovan.spring.starter.httpclient.util;
 
 
 import java.util.Objects;
@@ -36,6 +36,15 @@ import org.springframework.util.CollectionUtils;
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})
 public abstract class CookieStoreUtils {
+    /**
+     * Returns the first cookie with the given {@code name} in the given {@link org.apache.hc.client5.http.cookie.CookieStore}
+     *
+     * @param store the cookie store to search
+     * @param name the cookie name to look up
+     *
+     * @return the matching cookie, or {@code null} if none is found or {@code name} is blank
+     */
+
     @Nullable
     public Cookie getCookie(@Nonnull CookieStore store, @Nonnull String name) {
         if (CollectionUtils.isEmpty(store.getCookies()) || StringUtils.isBlank(name)) {
@@ -44,21 +53,58 @@ public abstract class CookieStoreUtils {
         return store.getCookies().stream().filter(cookie -> StringUtils.equals(name, cookie.getName())).findFirst().orElse(null);
     }
 
+    /**
+     * Returns the value of the first cookie with the given {@code name} in the given cookie store
+     *
+     * @param store the cookie store to search
+     * @param name the cookie name to look up
+     *
+     * @return the cookie value, or {@code null} if no matching cookie is found
+     */
+
     @Nullable
     public String getCookieValue(@Nonnull CookieStore store, @Nonnull String name) {
         Cookie cookie = getCookie(store, name);
         return cookie == null ? null : cookie.getValue();
     }
 
+    /**
+     * Returns all cookies in the given cookie store as a string delimited by {@code "="} and {@code ";"}
+     *
+     * @param store the cookie store whose cookies are formatted
+     *
+     * @return the formatted cookies, or {@code null} if the store contains no cookies
+     */
+
     @Nullable
     public String getCookiesAsString(@Nonnull CookieStore store) {
         return getCookiesAsString(store, "=", ";");    // $NON-NLS-1$ // $NON-NLS-2$
     }
 
+    /**
+     * Returns all cookies in the given cookie store as a string with the given character delimiters
+     *
+     * @param store the cookie store whose cookies are formatted
+     * @param keyValueDelimiter the delimiter between a cookie name and its value
+     * @param groupDelimiter the delimiter between cookies
+     *
+     * @return the formatted cookies, or {@code null} if the store contains no cookies
+     */
+
     @Nullable
     public String getCookiesAsString(@Nonnull CookieStore store, char keyValueDelimiter, char groupDelimiter) {
         return getCookiesAsString(store, CharUtils.toString(keyValueDelimiter), CharUtils.toString(groupDelimiter));
     }
+
+    /**
+     * Returns all cookies in the given cookie store as a string with the given delimiters
+     *
+     * @param store the cookie store whose cookies are formatted
+     * @param keyValueDelimiter the delimiter between a cookie name and its value, may be {@code null}
+     * @param groupDelimiter the delimiter between cookies, may be {@code null}
+     *
+     * @return the formatted cookies, or {@code null} if the store contains no cookies
+     */
 
     @Nullable
     public String getCookiesAsString(@Nonnull CookieStore store, @Nullable String keyValueDelimiter, @Nullable String groupDelimiter) {
