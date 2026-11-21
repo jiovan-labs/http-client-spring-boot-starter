@@ -54,6 +54,7 @@ import lombok.extern.slf4j.Slf4j;
  * Utilities for fetching and handling http response
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.client5.http.entity.EntityBuilder
  * @see org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder
  * @see org.apache.hc.core5.http.io.support.ClassicRequestBuilder

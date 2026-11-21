@@ -30,6 +30,7 @@ import com.jiovan.spring.starter.httpclient.property.AbstractHttpClientPropertie
  * Utilities for building http client with {@link com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties}
  *
  * @author David Hsing
+ *
  * @see com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})

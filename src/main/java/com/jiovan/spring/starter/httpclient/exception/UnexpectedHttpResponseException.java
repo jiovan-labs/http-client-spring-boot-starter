@@ -24,6 +24,7 @@ import org.apache.hc.core5.http.HttpException;
  * {@link org.apache.hc.core5.http.HttpException} for representing unexpected response
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.core5.http.NoHttpResponseException
  */
 @SuppressWarnings("unused")

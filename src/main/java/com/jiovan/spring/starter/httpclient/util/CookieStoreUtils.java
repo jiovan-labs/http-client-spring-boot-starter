@@ -33,6 +33,7 @@ import org.springframework.util.CollectionUtils;
  * Utilities for {@link org.apache.hc.client5.http.cookie.CookieStore}
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.client5.http.cookie.CookieStore
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})

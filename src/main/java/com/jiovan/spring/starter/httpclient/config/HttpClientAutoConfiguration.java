@@ -38,6 +38,7 @@ import com.jiovan.spring.starter.httpclient.util.SyncHttpClientBuilderUtils;
  * Configuration for sync http client
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.client5.http.impl.classic.HttpClients
  */
 @Configuration(proxyBeanMethods = false)

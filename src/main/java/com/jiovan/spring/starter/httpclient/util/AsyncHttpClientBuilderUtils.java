@@ -46,6 +46,7 @@ import com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties;
  * Utilities for building http client with {@link com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties}
  *
  * @author David Hsing
+ *
  * @see com.jiovan.spring.starter.httpclient.property.AsyncHttpClientProperties
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue", "DuplicatedCode"})

@@ -26,6 +26,7 @@ import org.apache.hc.core5.util.Timeout;
  * Utilities for {@link org.apache.hc.client5.http.config.RequestConfig}
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.client5.http.config.RequestConfig
  */
 @SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted", "UnusedReturnValue"})
@@ -49,6 +50,7 @@ public abstract class RequestConfigUtils {
      * @param requestTimeout connect request timeout
      * @param connectTimeout connect timeout
      * @param responseTimeout response timeout
+     *
      * @return a {@code RequestConfig} with specified timeout settings
      */
     public static RequestConfig withSpecifiedTimeouts(@Nullable Timeout requestTimeout, @Nullable Timeout connectTimeout, @Nullable Timeout responseTimeout) {
@@ -59,6 +61,7 @@ public abstract class RequestConfigUtils {
      * Return a {@code RequestConfig} restricted with default timeout settings if it is infinity
      *
      * @param config a {@code RequestConfig} that may have infinity timeout settings
+     *
      * @return a {@code RequestConfig} restricted with default timeout settings if it is infinity
      */
     @Nullable

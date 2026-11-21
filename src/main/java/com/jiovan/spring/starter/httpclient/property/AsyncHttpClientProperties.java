@@ -34,6 +34,7 @@ import lombok.ToString;
  * Properties for async http client
  *
  * @author David Hsing
+ *
  * @see com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties
  */
 @Getter

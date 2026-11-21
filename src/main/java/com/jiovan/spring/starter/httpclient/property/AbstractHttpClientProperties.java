@@ -48,6 +48,7 @@ import lombok.ToString;
  * Abstract properties for http client
  *
  * @author David Hsing
+ *
  * @see org.apache.hc.client5.http.impl.classic.HttpClientBuilder
  * @see org.apache.hc.client5.http.impl.async.HttpAsyncClientBuilder
  */

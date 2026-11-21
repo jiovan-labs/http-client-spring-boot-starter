@@ -33,6 +33,7 @@ import lombok.ToString;
  * Properties for sync http client
  *
  * @author David Hsing
+ *
  * @see com.jiovan.spring.starter.httpclient.property.AbstractHttpClientProperties
  */
 @Getter
